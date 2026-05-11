@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Home | Your Creative Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5b8def 0%, #7d58d9 100%);
+            color: white;
+            padding: 24px 32px;
+            box-shadow: 0 10px 30px rgba(44, 57, 105, 0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 80px 32px 48px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            color: white;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.5rem, 4vw, 4.2rem);
+            margin-bottom: 20px;
+            line-height: 1.05;
+        }
+
+        .hero-copy p {
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.92);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button,
+        .button-secondary {
+            border: none;
+            border-radius: 999px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button {
+            background: #ffffff;
+            color: #4f46e5;
+            box-shadow: 0 18px 35px rgba(44, 57, 105, 0.18);
+        }
+
+        .button-secondary {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .button:hover,
+        .button-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            text-align: center;
+        }
+
+        .hero-visual .panel {
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 40px 80px rgba(28, 39, 76, 0.18);
+        }
+
+        .hero-visual h2 {
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .hero-visual p {
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 20px;
+        }
+
+        .hero-visual .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 18px;
+            text-align: left;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+        }
+
+        .section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 60px 32px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #5b8def;
+            margin-bottom: 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 40px rgba(56, 71, 119, 0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            color: #222;
+        }
+
+        .card p {
+            color: #556;
+        }
+
+        .footer {
+            background: #1f2640;
+            color: rgba(255,255,255,0.75);
+            padding: 32px 32px;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .footer-inner p {
+            max-width: 520px;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            header,
+            .section,
+            .footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero-copy h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <nav class="nav">
+                <div class="brand">Bright Home</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <section class="hero" id="home">
+                <div class="hero-copy">
+                    <h1>Your homepage, designed to impress.</h1>
+                    <p>Launch a stylish and polished home page in seconds. This page is built for clarity, modern branding, and easy customization.</p>
+                    <div class="hero-actions">
+                        <button class="button" onclick="alert('Welcome! You are on the homepage.')">Get Started</button>
+                        <button class="button-secondary" onclick="scrollToSection('services')">View Services</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="panel">
+                        <h2>Designed to convert</h2>
+                        <p>Everything from the gradient hero to the responsive layout is tailored for a clean homepage experience.</p>
+                        <div class="stats">
+                            <div class="stat"><strong>4.9/5</strong> User satisfaction</div>
+                            <div class="stat"><strong>24/7</strong> Support ready</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <section class="section" id="services">
+            <div class="section-title">Our services</div>
+            <h2 style="font-size:2rem; margin-bottom:20px;">Everything your homepage needs</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Strategy & Design</h3>
+                    <p>Create memorable brand experiences with a homepage that speaks clearly and looks polished on every screen.</p>
+                </article>
+                <article class="card">
+                    <h3>Development</h3>
+                    <p>Fast loading pages, responsive content, and interactive elements make your website feel premium.</p>
+                </article>
+                <article class="card">
+                    <h3>Launch Support</h3>
+                    <p>Need help getting live? Use the homepage as a launchpad for your next project with minimal setup.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="about" style="background: #eef2ff; border-top: 1px solid #d8dff8;">
+            <div class="section-title">About us</div>
+            <h2 style="font-size:2rem; margin-bottom:20px;">A welcoming space for your ideas</h2>
+            <p style="max-width: 780px; color: #505f7f;">This homepage uses crisp typography, subtle shadows, and a thoughtful layout to deliver a calm, professional experience. It works well for portfolios, small business sites, product pages, and personal landing pages.</p>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-title">Get in touch</div>
+            <h2 style="font-size:2rem; margin-bottom:20px;">Ready to build something great?</h2>
+            <p style="max-width: 720px; margin-bottom: 24px; color: #4f4f4f;">Use this file as a starting point. Replace the text, update the colors, and make it your own.</p>
+            <button class="button" onclick="alert('Contact form would open here.')">Contact Us</button>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-inner">
+                <div>
+                    <strong>Bright Home</strong>
+                    <p>The easiest way to start a clean and stylish homepage.</p>
+                </div>
+                <p>Built for quick editing, modern presentation, and a confident first impression.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
